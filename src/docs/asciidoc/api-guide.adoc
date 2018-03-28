@@ -1,0 +1,126 @@
+= RESTful push-sound API Guide
+Alexandre Carbenay;
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+
+[[overview]]
+= Overview
+
+[[overview-http-verbs]]
+== HTTP verbs
+
+push-sound RESTful API tries to adhere as closely as possible to standard HTTP and REST conventions in its use of HTTP verbs.
+
+|===
+| Verb | Usage
+
+| `GET`
+| Used to retrieve a resource
+
+| `POST`
+| Used to create a new resource
+
+| `PUT`
+| Used to update an existing resource
+
+| `DELETE`
+| Used to delete an existing resource
+|===
+
+[[overview-http-status-codes]]
+== HTTP status codes
+
+push-sound RESTful API tries to adhere as closely as possible to standard HTTP and REST conventions in its use of HTTP status codes.
+
+|===
+| Status code | Usage
+
+| `200 OK`
+| The request completed successfully
+
+| `201 Created`
+| A new resource has been created successfully. The resource's URI is available from the response's `Location` header
+
+| `204 No Content`
+| An update to an existing resource has been applied successfully
+
+| `400 Bad Request`
+| The request was malformed. The response body will include an error providing further information
+
+| `404 Not Found`
+| The requested resource did not exist
+|===
+
+[[resources]]
+= Resources
+
+This section documents every exposed resource.
+
+[[resources-sample]]
+== Samples
+
+The Samples resource is used to demonstrate project structure.
+
+[[resources-samples-list]]
+=== Listing samples
+
+A `GET` request will list all of the samples.
+
+==== Response structure
+
+include::{snippets}/samples-list-example/response-fields.adoc[]
+
+==== Example request
+
+include::{snippets}/samples-list-example/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/samples-list-example/http-response.adoc[]
+
+[[resources-samples-create]]
+=== Creating a sample
+
+A `POST` request is used to create a sample.
+
+==== Request structure
+
+include::{snippets}/samples-create-example/request-fields.adoc[]
+
+==== Example request
+
+include::{snippets}/samples-create-example/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/samples-create-example/http-response.adoc[]
+
+[[resources-sample]]
+== Sample
+
+The Sample resource is used to retrieve, update, and delete individual samples.
+
+[[resources-sample-retrieve]]
+=== Retrieve a sample
+
+A `GET` request will retrieve the details of a sample.
+
+==== Path Parameters
+
+include::{snippets}/sample-detail-example/path-parameters.adoc[]
+
+==== Response structure
+
+include::{snippets}/sample-detail-example/response-fields.adoc[]
+
+==== Example request
+
+include::{snippets}/sample-detail-example/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/sample-detail-example/http-response.adoc[]

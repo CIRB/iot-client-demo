@@ -1,0 +1,9 @@
+version: '2.1'
+services:
+  application:
+    container_name: application
+    image: app/push-sound:0.1.0
+    command: >
+      java -jar push-sound.jar --application.documentation.enabled=true
+    ports:
+    - ${PORT:-8080}:8080

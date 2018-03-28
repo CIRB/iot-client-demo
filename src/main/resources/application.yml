@@ -1,0 +1,51 @@
+application:
+  #Read every 5 minutes
+  interval: 300
+  # Where to read the measures (csv file with Laeq15,Laeq60,Lceq15,Lceq60 data
+  measure-location:
+  iot-platform:
+    auth-url: https://cognito-idp.eu-central-1.amazonaws.com/
+    url: https://3wp5d6wz15.execute-api.eu-central-1.amazonaws.com/dev/data
+    # Your provided username
+    user:
+    # Your provided password
+    password:
+    # Your provided client id
+    client-id:
+    # Your provided device id
+    device-id:
+
+spring:
+  jackson:
+    default-property-inclusion: non-absent
+    serialization:
+      write-dates-as-timestamps: false
+
+security:
+  user:
+    name: admin
+    password: admin
+    role:
+    - ACTUATOR
+
+management:
+  context-path: /management
+
+logging:
+  file: push-sound.log
+  path: logs
+  pattern:
+    console: '[%-5p] %d | %c{1}:%L | %m%n'
+    file: '[%-5p] %d | %c{1}:%L | %m%n'
+  level:
+    liquibase: INFO
+    org.springframework: ERROR
+    org.springframework.boot: ERROR
+    org.springframework.boot.autoconfigure: ERROR
+    org.springframework.web: ERROR
+    org.springframework.web.servlet.DispatcherServlet: ERROR
+    org.springframework.security: ERROR
+    org.springframework.security.web.FilterChainProxy: ERROR
+    org.hibernate.SQL: ERROR
+    org.hibernate.type.descriptor.sql: ERROR
+    brussels.bric.iot: DEBUG
