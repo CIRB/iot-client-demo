@@ -28,7 +28,7 @@ public class SoundData {
         this.redOn = redOn;
     }
 
-    public String getIso8601Date() {
+    public String redOnIso8601() {
         return redOn.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
     }
 

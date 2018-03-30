@@ -55,7 +55,7 @@ public class RestIotPlatform implements IotPlatformGateway {
             httpHeaders.set("Authorization", authenticationToken);
             httpHeaders.set("Content-Type", "application/json");
             HttpEntity<String> httpEntity = new HttpEntity<>(
-                    String.format(MEASURE_FORMAT, deviceId, soundData.getIso8601Date(), soundData.getLaeq15(),
+                    String.format(MEASURE_FORMAT, deviceId, soundData.redOnIso8601(), soundData.getLaeq15(),
                             soundData.getLaeq60(), soundData.getLceq15(), soundData.getLceq60()), httpHeaders);
             try {
                 ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.POST, httpEntity, String.class);
