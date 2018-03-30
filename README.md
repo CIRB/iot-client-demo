@@ -1,6 +1,14 @@
-# App project README file
+# Push sound to IoT platform project README file
 
-This project contains all the sources for the 'application' project.
+This project contains all the sources for the 'push-sound' project.
+
+# Why ?
+
+If a device provider needs to push sound data to the IoT platform he can use this code as an implementation describing how to interawt with the IoT platform.
+Sound read is abstracted behind a **Separated Interface** named SoundRepository. In its current implementation, the repository simply reads a csv file which path is defined in the *application.yml* under *application.measure-location* this needs to be adapted to the user's needs.
+Once the SoundData has been instantiated it can be sent to the platform using the **Separated Interface** named IoTPlatformGateway. The current implementation simply sends the data to the platform and handles the authentication for the user.
+
+**Disclaimer**: This is an example implementation and should not be used directly in production. 
 
 ## [TL;DR]
 
