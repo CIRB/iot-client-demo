@@ -5,7 +5,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import lombok.Data;
 
 /**
- * Configuration properties to configure the application.
+ * Configuration properties are extracted from application.yml and automatically assigned by Spring at start-up.
+ *
+ * This class uses Lombok and thus getters and setters are automatically added.
  *
  * @author Adi Bajramov
  *

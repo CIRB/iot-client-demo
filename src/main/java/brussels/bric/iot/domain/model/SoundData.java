@@ -5,6 +5,10 @@ import java.time.format.DateTimeFormatter;
 import lombok.Getter;
 
 /**
+ * Brussels' IoT platform defined a Json structure with field defined in this class.
+ *
+ * Date management is restricted to ISO8601 dates.
+ *
  * @author abajramov
  * @since 3/26/18
  */

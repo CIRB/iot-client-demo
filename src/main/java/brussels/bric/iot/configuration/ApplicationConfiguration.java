@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Configuration;
 import brussels.bric.iot.infrastructure.FileSoundRepository;
 
 /**
+ * This class configures the Spring application.
+ *
  * @author abajramov
  * @since 18/06/2018
  */

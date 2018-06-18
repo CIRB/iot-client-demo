@@ -9,6 +9,12 @@ import brussels.bric.iot.configuration.ApplicationProperties;
 import brussels.bric.iot.domain.model.SoundData;
 
 /**
+ * This is a simple implementation of a service which starts a batch process. The interval is configurable through {@link ApplicationProperties}
+ * The goal was to emulate data exchange with the platform and perform it every 5 minutes are defined in the Brussels' IoT platform tender.
+ *
+ * Read is delegated to {@link SoundRepository}.
+ * Echange with the IoT platform is delegated to {@link IotPlatformGateway}.
+ *
  * @author abajramov
  * @since 3/26/18
  */

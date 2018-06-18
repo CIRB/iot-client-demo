@@ -13,14 +13,23 @@ import brussels.bric.iot.domain.model.SoundData;
 import brussels.bric.iot.service.IotPlatformGateway;
 
 /**
+ * Sample implementation of a Gateway which is able to communicate with Brussels' IoT platform.
+ * This class is built to showcase the exchange with the IoT platform. It will handle security and data transfer.
+ *
+ * The data expected by the platform can be consulted in {@link brussels.bric.iot.service.SoundService}.
+ *
+ * Many configuration values need to be provided for this class to work. Those parameters come from {@link brussels.bric.iot.configuration.ApplicationProperties}.
+ *
+ * The security is managed by this class which eases the communication with the platform.
+ *
  * @author abajramov
  * @since 3/26/18
  */
 @Component
-public class RestIotPlatform implements IotPlatformGateway {
+public class RestIotPlatformGateway implements IotPlatformGateway {
 
     // -------------------------------------------------------------------------------Constant(s)---
-    private static final Logger LOGGER = LoggerFactory.getLogger(RestIotPlatform.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(RestIotPlatformGateway.class);
     private static final String AUTH_FLOW_FORMAT =
             "{\"AuthFlow\":\"USER_PASSWORD_AUTH\", \"AuthParameters\":{\"PASSWORD\":\"%s\", \"USERNAME\":\"%s\"}, \"ClientId\":\"%s\"}";
     private static final String MEASURE_FORMAT   =
@@ -35,7 +44,7 @@ public class RestIotPlatform implements IotPlatformGateway {
     private final String url;
 
     // ----------------------------------------------------------------------------Constructor(s)---
-    public RestIotPlatform(ApplicationProperties applicationProperties) {
+    public RestIotPlatformGateway(ApplicationProperties applicationProperties) {
         authenticationUrl = applicationProperties.getIotPlatform().getAuthUrl();
         password = applicationProperties.getIotPlatform().getPassword();
         user = applicationProperties.getIotPlatform().getUser();
@@ -45,6 +54,13 @@ public class RestIotPlatform implements IotPlatformGateway {
     }
 
     // -------------------------------------------------------------------------------Override(s)---
+    
+    /**
+     * This method send the data to Brussels' IoT platform.
+     * The parameter, soundData, is representing the data that the platform understands.
+     *
+     * @param soundData
+     */
     @Override
     public void sendSoundData(SoundData soundData) {
         String authenticationToken = authenticate();
@@ -65,7 +81,13 @@ public class RestIotPlatform implements IotPlatformGateway {
             }
         }
     }
-
+    
+    /**
+     * The authentication retrieves a token from the identity manager. That token must be used for the exchange with the service.
+     * This method retrieves the token to be used during the communication with the IoT platform.
+     *
+     * @return
+     */
     private String authenticate() {
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders httpHeaders = new HttpHeaders();

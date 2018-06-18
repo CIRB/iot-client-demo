@@ -14,6 +14,8 @@ import brussels.bric.iot.domain.model.SoundData;
 import brussels.bric.iot.service.SoundRepository;
 
 /**
+ * This class reads sound levels from a simple csv file.
+ *
  * @author abajramov
  * @since 3/26/18
  */

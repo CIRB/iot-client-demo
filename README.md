@@ -1,6 +1,6 @@
-# Push sound to IoT platform project README file
+# Example application which pushes sound levels to Brussels' IoT 
 
-This project contains all the sources for the 'push-sound' project.
+This project contains all the sources for the the interaction with the "Brussels' IoT platform".
 
 # Why ?
 
