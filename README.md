@@ -65,7 +65,9 @@ The [Jackson Parameter Names module](https://github.com/FasterXML/jackson-module
 
 ## Project structure
 
-Describe here your project structure.
+This project is composed of the sources which are configured to build docker images and self-executable jars.
+
+The application itself is based on an hexagonal architecture with the domain.model in its core and a buisness service which relies on dependency inversion principle. 
 
 ## Usage
 
@@ -92,7 +94,7 @@ This build results in a `target/application.jar` JAR file and a `app/application
 The project contains a `Makefile` to execute different targets for build and execution. Execution targets enable configuring local environment. Create a `.env` file in the project root folder if you desire to override defaults. The defaults are set at the top of the Makefile. Here is an example of .env content:
 
 ```
-PORT=8081
+PORT=8080
 ```
 
 #### Running jar
