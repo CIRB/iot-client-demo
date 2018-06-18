@@ -15,7 +15,6 @@ import brussels.bric.iot.configuration.ApplicationProperties;
  * @since 0.1.0
  */
 @SpringBootApplication
-@EnableConfigurationProperties(ApplicationProperties.class)
 public class Application {
 
     /**

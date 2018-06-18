@@ -17,7 +17,6 @@ import brussels.bric.iot.service.SoundRepository;
  * @author abajramov
  * @since 3/26/18
  */
-@Repository
 public class FileSoundRepository implements SoundRepository {
 
     // -------------------------------------------------------------------------------Constant(s)---
@@ -27,7 +26,6 @@ public class FileSoundRepository implements SoundRepository {
     private final File measureFile;
 
     // ----------------------------------------------------------------------------Constructor(s)---
-    @Autowired
     public FileSoundRepository(ApplicationProperties applicationProperties) {
         this.measureFile = new File(applicationProperties.getMeasureLocation());
         if (!measureFile.exists()) {
